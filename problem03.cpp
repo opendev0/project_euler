@@ -8,29 +8,36 @@ What is the largest prime factor of the number 600851475143 ?
 
 using namespace std;
 
+bool isPrime(unsigned int);
+
 int main(void)
 {
-	const unsigned long long number = 600851475143;
-	bool primeFactor;
-
-	for (unsigned long long i = (number / 2); i > 2; --i) {
-		primeFactor = true;
-
-		if (!(number % i)) {
-			for (unsigned long long j = ((i / 2) - 1); j > 1; --j) {
-				// If number is evenly divisible by a number smaller than itself and bigger than 1 -> no prime
-				if (!(i % j)) {
-					primeFactor = false;
-					break;
-				}
-			}
-			
-			if (primeFactor && !(number % i)) {
-				cout << i << endl;
-				break;
+	unsigned long long number = 600851475143;
+	unsigned int i = 2;
+	
+	for (; number > 1; ++i) {
+		if (isPrime(i)) {
+			if (!(number % i)) {
+				number /= i;
 			}
 		}
 	}
 	
+	cout << "Biggest prime factor: " << --i << endl;
+	
 	return 0;
+}
+
+bool isPrime(unsigned int n)
+{
+	if (n == 0 || n == 1) return false;
+	
+	// If n is evenly divisible by a number less than itself and greater than 1 -> no prime
+	for (unsigned int i = (n - 1); i >= 2; --i) {
+		if (!(n % i)) {
+			return false;
+		}
+	}
+	
+	return true;
 }
