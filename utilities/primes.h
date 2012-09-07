@@ -22,34 +22,7 @@ bool isPrime(unsigned int n)
 	return true;
 }
 
-vector<unsigned int> getPrimes(unsigned int upperLimit)
-{
-	++upperLimit;
-	vector<unsigned int> primes;
-	bool * const numbers = new bool[upperLimit];
-	
-	numbers[0] = numbers[1] = false;
-	
-	for (unsigned int i = 2; i < upperLimit; ++i) {
-		numbers[i] = true;
-	}
-	
-	for (unsigned int i = 2; i < upperLimit; ++i) {
-		if (numbers[i]) {
-			for (unsigned int j = i; j < upperLimit; j += i) {
-				numbers[j] = false;
-			}
-			
-			primes.push_back(i);
-		}
-	}
-	
-	delete numbers;
-	
-	return primes;
-}
-
-set<unsigned int> getPrimesAsSet(unsigned int upperLimit)
+set<unsigned int> getPrimes(unsigned int upperLimit)
 {
 	++upperLimit;
 	set<unsigned int> primes;

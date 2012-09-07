@@ -16,7 +16,7 @@ int main(void)
 {
 	unsigned int result = 0;
 	
-	set<unsigned int> const primes = getPrimesAsSet(1000000);
+	set<unsigned int> const primes = getPrimes(1000000);
 	
 	for (set<unsigned int>::iterator it = primes.begin(); it != primes.end(); ++it) {
 		if (isTruncateable(*it, primes)) {

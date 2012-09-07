@@ -15,7 +15,7 @@ using namespace std;
 
 int main(int argc, char **argv)
 {	
-	set<unsigned int> const primes = getPrimesAsSet(1000000);
+	set<unsigned int> const primes = getPrimes(1000000);
 	
 	cout << getCircularPrimes(primes).size() << endl;
 	
