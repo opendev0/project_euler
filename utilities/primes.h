@@ -8,6 +8,20 @@
 using namespace std;
 
 
+bool isPrime(unsigned int n)
+{
+	if (n == 0 || n == 1) return false;
+	
+	// If n is evenly divisible by a number less than itself and greater than 1 -> no prime
+	for (unsigned int i = (n - 1); i >= 2; --i) {
+		if (!(n % i)) {
+			return false;
+		}
+	}
+	
+	return true;
+}
+
 vector<unsigned int> getPrimes(unsigned int upperLimit)
 {
 	++upperLimit;
@@ -60,6 +74,22 @@ set<unsigned int> getPrimesAsSet(unsigned int upperLimit)
 	delete numbers;
 	
 	return primes;
+}
+
+vector<unsigned int> getPrimeFactors(unsigned long long n)
+{
+	vector<unsigned int> factors;
+	
+	for (unsigned int i = 2; n > 1; ++i) {
+		if (isPrime(i)) {
+			if (!(n % i)) {
+				n /= i;
+				factors.push_back(i);
+			}
+		}
+	}
+	
+	return factors;
 }
 
 vector<unsigned int> getCircularPrimes(set<unsigned int> const &primeSet)
