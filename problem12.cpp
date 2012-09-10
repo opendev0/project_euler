@@ -18,7 +18,6 @@ We can see that 28 is the first triangle number to have over five divisors.
 What is the value of the first triangle number to have over five hundred divisors?
 */
 
-#include "utilities/TriangleNumber.h"
 #include <iostream>
 #include <limits>
 
@@ -32,7 +31,7 @@ int main(void)
 	if (result == -1) {
 		cout << "Number to big for long long" << endl;
 	} else {
-		cout << result << endl;
+		cout << "The first triangle number which has more than five hundred divisors is " << result << '.' << endl;
 	}
 
 	return 0;
