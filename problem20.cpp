@@ -22,7 +22,7 @@ int main(void)
 		bi *= i;
 	}
 	
-	cout << bi.digitSum() << endl;
+	cout << "The sum of the digits in the number 100! is " << bi.digitSum() << '.' << endl;
 
 	return 0;
 }

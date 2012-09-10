@@ -34,7 +34,7 @@ int main(void)
 		result += up;
 	}
 	
-	cout << "Result: " << result << endl;
+	cout << "The sum of the numbers on the diagonals in a 1001 by 1001 spiral is " << result << '.' << endl;
 	
 	return 0;
 }

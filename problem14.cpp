@@ -20,26 +20,26 @@ using namespace std;
 
 int main(void)
 {
-	unsigned long long highest = 0, starting_number = 0, tmp_highest;
+	unsigned long long highest = 0, startingNumber = 0, chainLength;
 	
 	for (unsigned long long i = 2; i < 1000000; ++i) {
-		tmp_highest = 0;
+		chainLength = 0;
 		
-		for (unsigned long long j = i; j > 1; ++tmp_highest) {
-			if ((j & 1) == 1) {
+		for (unsigned long long j = i; j > 1; ++chainLength) {
+			if (j & 1) {
 				j = 3 * j + 1;
 			} else {
 				j /= 2;
 			}
 		}
 		
-		if (tmp_highest > highest) {
-			highest = tmp_highest;
-			starting_number = i;
+		if (chainLength > highest) {
+			highest = chainLength;
+			startingNumber = i;
 		}
 	}
 	
-	cout << starting_number << endl;
+	cout << "The starting number which produces the longest chain is " << startingNumber << '.' << endl;
 
 	return 0;
 }

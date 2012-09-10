@@ -52,7 +52,7 @@ int main(void)
 		sum = (sum + numbers[i]);
 	}
 	
-	cout << "Result: " << sum << endl;
+	cout << "The sum of all numbers that can be written as the sum of fifth powers of their digits is " << sum << '.' << endl;
 
 	return 0;
 }

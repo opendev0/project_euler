@@ -25,7 +25,7 @@ int main(void)
 		}
 	}
 
-	cout << (i - max) << endl;
+	cout << "The smallest positive number that is evenly divisible by all numbers from 1 to 20 is " << (i - max) << '.' << endl;
 	
 	return 0;
 }

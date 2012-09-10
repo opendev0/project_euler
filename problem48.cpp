@@ -9,7 +9,6 @@ Find the last ten digits of the series, 1^(1) + 2^(2) + 3^(3) + ... + 1000^(1000
 
 using namespace std;
 
-
 BigInt& selfpow(int i)
 {
 	BigInt *result = new BigInt();
@@ -27,8 +26,6 @@ BigInt& selfpow(int i)
 
 int main(void)
 {
-	BigInt bi(3);
-	
 	BigInt bi(1);
 	
 	vector<future<BigInt&>> threads;
@@ -45,7 +42,7 @@ int main(void)
 		bi += threads[i].get();
 	}
 
-	cout << "Result: " << bi << endl;
+	cout << "The result of the series 1^1 + 2^2 + ... + 1000^1000 is " << bi << '.' << endl;
 
 	return 0;
 }

@@ -6,29 +6,30 @@ Find the largest palindrome made from the product of two 3-digit numbers.
 
 #include "utilities/strfun.h"
 #include <iostream>
-#include <sstream>
 
 using namespace std;
 
 int main(void)
-{	
-	for (int i = 999*999; i; --i) {
-		ostringstream out;
-		out << i;
+{
+	double result = 0;
+	
+	for (unsigned int i = (999 * 999); !result; --i) {
+		char *number = uitoa(i);
 		
-		const char *str = out.str().c_str();
-		
-		if (!strcmp(str, strinv(str))) {			
-			for (unsigned int j = 999; j > 99; --j) {
-				double result = (i / j);
-				if (!(i % j) && result > 99 && result < 1000) {
-					cout << i << " (" << j << " * " << result << ')' << endl;
+		if (isPalindromic(number)) {
+			for (unsigned int factor1 = 999; factor1 > 99; --factor1) {
+				double factor2 = (i / factor1);
+				
+				if (!(i % factor1) && factor2 > 99 && factor2 < 1000) {
+					result = i;
 					
-					return 0;
+					break;
 				}
 			}
 		}
 	}
+	
+	cout << "The largest palindrome made from the product of two 3-digit numbers is " << result << '.' << endl;
 
 	return 0;
 }

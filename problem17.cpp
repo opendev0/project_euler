@@ -6,47 +6,21 @@ If all the numbers from 1 to 1000 (one thousand) inclusive were written out in w
 NOTE: Do not count spaces or hyphens. For example, 342 (three hundred and forty-two) contains 23 letters and 115 (one hundred and fifteen) contains 20 letters. The use of "and" when writing out numbers is in compliance with British usage.
 */
 
+#include "utilities/strfun.h"
 #include <iostream>
 
 using namespace std;
 
 typedef unsigned int uint;
 
-uint atoui(char *str)
-{
-	uint result = 0;
-	char *tmp = str;
-	
-	while (*(++tmp) != 0);
-	
-	for (uint i = 1; tmp != str; i *= 10) {
-		result += i * (*(--tmp) - '0');
-	}
-	
-	return result;
-}
-
 int main(int argc, char **argv)
 {
-	const uint ones[] = {3, 3, 5, 4, 4, 3, 5, 5, 4};		// {"one", "two", "three", "four", "five", "six", "seven", "eight", "nine"}
-	const uint specialTens[] = {3, 6, 6, 8, 8, 7, 7, 9, 8, 8};	// {"ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"}
-	const uint tens[] = {6, 6, 5, 5, 5, 7, 6, 6};			// {"twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"}
-	uint min, max, result = 0;
-	
-	if (argc == 2) {
-		min = max = atoui(argv[1]);
-	} else if (argc == 3) {
-		min = atoui(argv[1]);
-		max = atoui(argv[2]);
-	} else {
-		cout << "Usage:" << endl << '\t' << argv[0] << " number" << endl << "\tor" << endl << '\t' << argv[0] << " startnumber endnumber" << endl;
+	uint const ones[] = {3, 3, 5, 4, 4, 3, 5, 5, 4};			// {"one", "two", "three", "four", "five", "six", "seven", "eight", "nine"}
+	uint const specialTens[] = {3, 6, 6, 8, 8, 7, 7, 9, 8, 8};	// {"ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"}
+	uint const tens[] = {6, 6, 5, 5, 5, 7, 6, 6};				// {"twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"}
+	unsigned int result = 0;
 		
-		return 1;
-	}
-	
-	cout << "min: " << min << endl << "max: " << max << endl << endl;
-	
-	for (uint i = min; i <= max; ++i) {
+	for (uint i = 1; i <= 1000; ++i) {
 		uint j = i;
 		
 		if (j > 999 && j < 10000) {
@@ -80,7 +54,7 @@ int main(int argc, char **argv)
 		}
 	}
 	
-	cout << "Result: " << result << endl;
+	cout << "The number of letters of all written out words from 1 to 1000 is " << result << '.' << endl;
 	
 	return 0;
 }

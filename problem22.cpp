@@ -24,9 +24,9 @@ int main(void)
 	while (ifs.good()) {
 		char name[256];
 		
-		ifs.ignore(1);			// Ignore first quotation mark
+		ifs.ignore(1);					// Ignore first quotation mark
 		ifs.getline(name, 256, '"');	// Get name and discard last quotation mark
-		ifs.ignore(1);			// Ignore comma
+		ifs.ignore(1);					// Ignore comma
 		
 		names.push_back(name);
 	}
@@ -39,7 +39,7 @@ int main(void)
 		totalNameScore += (i + 1) * getAlphabeticalValue(names[i]);		
 	}
 	
-	cout << "Total name score: " << totalNameScore << endl;
+	cout << "The total of all name scores is " << totalNameScore << '.' << endl;
 	
 	return 0;
 }

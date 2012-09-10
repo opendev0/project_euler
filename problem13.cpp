@@ -8,12 +8,11 @@ Work out the first ten digits of the sum of the following one-hundred 50-digit n
 
 using namespace std;
 
-
 int main(void)
 {
 	BigInt bi("37107287533902102798797998220837590246510135740250");
 	
-	char *theInts[] = {
+	char const * const theInts[] = {
 		"46376937677490009712648124896970078050417018260538",
 		"74324986199524741059474233309513058123726617309629",
 		"91942213363574161572522430563301811072406154908250",
@@ -119,5 +118,5 @@ int main(void)
 		bi += BigInt(theInts[i]);
 	}
 	
-	cout << bi << endl;
+	cout << "The sum of the 100 50-digit numbers is " << bi << '.' << endl;
 }

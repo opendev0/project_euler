@@ -13,7 +13,7 @@ int main(void)
 {
 	vector<unsigned int> primeFactors = getPrimeFactors(600851475143);
 	
-	cout << "Largest prime factor: " << primeFactors.back() << endl;
+	cout << "Largest prime factor of 600,851,475,143 is " << primeFactors.back() << '.' << endl;
 	
 	return 0;
 }

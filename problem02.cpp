@@ -10,25 +10,24 @@ By considering the terms in the Fibonacci sequence whose values do not exceed fo
 
 using namespace std;
 
-typedef unsigned int uint;
 
 int main(void)
 {
-	uint last[2] = {1, 2};
-	uint result = 2;
+	unsigned int prev[] = {1, 2};
+	unsigned int result = 2;
 	
-	for (uint i = 0; i < 4000000;) {
-		i = last[0] + last[1];
+	for (unsigned int i = 0; i < 4000000;) {
+		i = prev[0] + prev[1];
 		
 		if (!(i & 1)) {
 			result += i;
 		}
 		
-		last[0] = last[1];
-		last[1] = i;
+		prev[0] = prev[1];
+		prev[1] = i;
 	}
 	
-	cout << result << endl;
+	cout << "Sum of even valued terms in the Fibonacci sequence below 4,000,000 is " << result << '.' << endl;
 	
 	return 0;
 }

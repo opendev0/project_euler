@@ -17,7 +17,7 @@ int main(int argc, char **argv)
 {	
 	set<unsigned int> const primes = getPrimes(1000000);
 	
-	cout << getCircularPrimes(primes).size() << endl;
+	cout << "There are " << getCircularPrimes(primes).size() << " below 1,000,000." << endl;
 	
 	return 0;
 }

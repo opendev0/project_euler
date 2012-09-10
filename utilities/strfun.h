@@ -25,7 +25,7 @@ unsigned int strlen(const char * const str)
 }
 */
 
-unsigned int strToUInt(char const *str)
+unsigned int atoui(char const *str)
 {
 	unsigned int result = 0;
 	
@@ -36,21 +36,21 @@ unsigned int strToUInt(char const *str)
 	return result;
 }
 
-char *invert(const char *str)
+char *strinv(char const *str)
 {
 	unsigned int len = strlen(str);
 	
 	char *result = new char[len + 1];
 	result[len] = '\0';
 	
-	for (int i = len-1; i >= 0; --i, ++str) {
+	for (int i = (len - 1); i >= 0; --i, ++str) {
 		result[i] = *str;
 	}
 	
 	return result;
 }
 
-/*char *invert(const char *str)
+/*char *strinv(char const *str)
 {
 	const unsigned int len = strlen(str);
 	char *result = new char[len + 1];
@@ -73,10 +73,10 @@ char *uitoa(unsigned int n)
 		n /= 10;
 	}
 	
-	return invert(result.c_str());
+	return strinv(result.c_str());
 }
 
-int strcmp(const char *str1, const char *str2)
+int strcmp(char const *str1, char const *str2)
 {
 	while (*str1 != 0 && *str2 != 0) {
 		if (*str1 == *str2) {
@@ -96,15 +96,13 @@ int strcmp(const char *str1, const char *str2)
 	unsigned int len1 = strlen(str1);
 	unsigned int len2 = strlen(str2);
 	
-	if (len1 < len2)
-		return -1;
-	else if (len1 > len2)
-		return 1;
-	else
-		return 0;
+	if (len1 < len2) return -1;
+	if (len1 > len2) return 1;
+	
+	return 0;
 }
 
-bool isPalindromic(const char *str)
+bool isPalindromic(char const * const str)
 {
 	for (unsigned int i = 0, j = (strlen(str) - 1); i < j; ++i, --j) {
 		if (str[i] != str[j]) {
@@ -115,6 +113,7 @@ bool isPalindromic(const char *str)
 	return true;
 }
 
+// ToDo: Merge with uitoa
 char *dec2bin(unsigned int n)
 {
 	std::string result;
@@ -124,7 +123,7 @@ char *dec2bin(unsigned int n)
 		n /= 2;
 	}
 	
-	return invert(result.c_str());
+	return strinv(result.c_str());
 }
 
 #endif

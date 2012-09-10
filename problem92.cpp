@@ -33,5 +33,5 @@ int main(void)
 		} while (j != 1);
 	}
 	
-	cout << counter << endl;
+	cout << "In a number chain created by continuously adding the square of the digits in a number to form a new number, " << counter << " starting numbers below ten million will arrive at 89." << endl;
 }

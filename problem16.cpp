@@ -4,27 +4,17 @@
 What is the sum of the digits of the number 2^(1000)?
 */
 
+#include "utilities/BigInt.h"
 #include <iostream>
-#include <iomanip>
-#include <string>
-#include <sstream>
-#include <math.h>
 
 using namespace std;
 
 int main(void)
 {
-	double power = pow(2, 1000);
-	unsigned int result = 0;
+	BigInt bi(2);
+	bi.pow(1000);
 	
-	ostringstream out;
-	out << setprecision(512) << power;
-	
-	for (unsigned int i = 0; i < out.str().length(); ++i) {
-		result += (out.str()[i] - '0');
-	}
-	
-	cout << result << endl;
+	cout << "The sum of the digits of 2^1000 is " << bi.digitSum() << '.' << endl;
 
 	return 0;
 }

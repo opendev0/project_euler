@@ -4,26 +4,17 @@ By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that 
 What is the 10 001st prime number?
 */
 
+#include "utilities/primes.h"
 #include <iostream>
 
 using namespace std;
 
 int main(void)
 {
-	int prime = 0, numPrime = 1;
-	bool isPrime;
+	unsigned int prime = 0, numPrime = 1;
 	
 	for (unsigned int i = 3; true; i += 2) {
-		isPrime = true;
-		
-		for (unsigned int j = i-1; j > 1; --j) {
-			if (!(i % j)) { // If i is divisible by j -> no prime
-				isPrime = false;
-				break;
-			}
-		}
-		
-		if (isPrime) {
+		if (isPrime(i)) {
 			if (++numPrime == 10001) {
 				prime = i;
 				break;
@@ -31,7 +22,7 @@ int main(void)
 		}
 	}
 	
-	cout << prime << endl;
+	cout << "The 10001st prime number is " << prime << '.' << endl;
 	
 	return 0;
 }

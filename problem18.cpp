@@ -53,7 +53,7 @@ int main(void)
 		}
 	}
 	
-	cout << triangle[0][0] << endl;
+	cout << "The maximum total from the top to the bottom of the triangle is " << triangle[0][0] << '.' << endl;
 
 	return 0;
 }

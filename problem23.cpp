@@ -63,5 +63,5 @@ int main(void)
 		}
 	}
 	
-	cout << endl << endl << "Sum: " << result << endl;
+	cout << endl << endl << "The sum of all positive integers which cannot be written as the sum of two abundant numbers is " << result << '.' << endl;
 }

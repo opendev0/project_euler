@@ -34,12 +34,13 @@ BigInt& BigInt::operator=(BigInt const &bi)
 
 	return *this;
 }
+
 BigInt& BigInt::operator+=(BigInt const &bi)
 {
 	uchar	off = 0,    // overflow-flag
-		digit = 0;
+			digit = 0;
 	uint   	op1Size = this->_value.size(),
-		op2Size = bi._value.size();
+			op2Size = bi._value.size();
 
 	for (uint i = 0; off || i < op1Size || i < op2Size; ++i) {
 		if (op1Size == i) {
@@ -67,8 +68,8 @@ BigInt& BigInt::operator+=(BigInt const &bi)
 BigInt& BigInt::operator+=(uint number)
 {
 	uchar  	off = 0,    // overflow-flag
-		digit = 0;
-	uint size = this->_value.size();
+			digit = 0;
+	uint	size = this->_value.size();
 
 	for (uint i = 0; off || number || i < size; ++i) {
 		if (size == i) {

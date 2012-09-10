@@ -16,17 +16,17 @@ using namespace std;
 
 int main(void)
 {
-	int sumOfSquares = 0;
-	int squareOfSums = 0;
+	unsigned int sumOfSquares = 0;
+	unsigned int squareOfSums = 0;
 
-	for (int i = 1; i <= 100; ++i) {
-		sumOfSquares += i*i;
+	for (unsigned int i = 1; i <= 100; ++i) {
+		sumOfSquares += (i * i);
 		squareOfSums += i;
 	}
 
 	squareOfSums *= squareOfSums;
 
-	cout << (squareOfSums - sumOfSquares) << endl;
+	cout << "The difference between the sum of squared of the first one hundred natural numbers and the square of the sum is " << (squareOfSums - sumOfSquares) << '.' << endl;
 	
 	return 0;
 }

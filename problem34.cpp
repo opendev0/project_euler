@@ -41,7 +41,7 @@ int main(void)
 		cout << sums[i] << endl;
 	}
 	
-	cout << "Result: " << result << endl;
+	cout << "The sum of all numbers which are equal to the sum of the factorial of their digits is " << result << '.' << endl;
 
 	return 0;
 }

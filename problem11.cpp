@@ -13,7 +13,7 @@ using namespace std;
 
 int main(void)
 {
-	unsigned int table[20][20] = {
+	unsigned int table[][20] = {
 		{ 8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 04, 5, 7, 78, 52, 12, 50, 77, 91, 8 },
 		{ 49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0 },
 		{ 81, 49, 31, 73, 55, 79, 14, 29, 93, 71, 40, 67, 53, 88, 30, 3, 49, 13, 36, 65 },
@@ -37,31 +37,35 @@ int main(void)
 	};
 	unsigned int result = 0, tmp_result;
 
-	for (int row = 0; row < 16; ++row) {
-		for (int col = 0; col < 20; ++col) {
+	for (unsigned int row = 0; row < 16; ++row) {
+		for (unsigned int col = 0; col < 20; ++col) {
 			tmp_result = table[row][col] * table[row][col+1] * table[row][col+2] * table[row][col+3];
-			if (tmp_result > result)
+			if (tmp_result > result) {
 				result = tmp_result;
+			}
 
 			tmp_result = table[row][col] * table[row+1][col] * table[row+2][col] * table[row+3][col];
-			if (tmp_result > result)
+			if (tmp_result > result) {
 				result = tmp_result;
+			}
 
 			if (col < 16) {
 				tmp_result = table[row][col] * table[row+1][col+1] * table[row+2][col+2] * table[row+3][col+3];
-				if (tmp_result > result)
+				if (tmp_result > result) {
 					result = tmp_result;
+				}
 			}
 
 			if (col > 2) {
 				tmp_result = table[row][col] * table[row+1][col-1] * table[row+2][col-2] * table[row+3][col-3];
-				if (tmp_result > result)
+				if (tmp_result > result) {
 					result = tmp_result;
+				}
 			}
 		}
 	}
 
-	cout << result << endl;
+	cout << "The greatest product of four adjacent numbers in any direction is " << result << '.' << endl;
 	
 	return 0;
 }

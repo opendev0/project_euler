@@ -24,7 +24,7 @@ int main(void)
 		}
 	}
 	
-	cout << "Result: " << result << endl;
+	cout << "The sum of all primes that are both truncatable from left to right and right to left is " << result << '.' << endl;
 	
 	return 0;
 }

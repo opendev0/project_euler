@@ -21,7 +21,7 @@ int main(void)
 		}
 	}
 	
-	cout << result << endl;
+	cout << "The sum of all numbers which are below one million and palindromic in base 10 and 2 is " << result << '.' << endl;
 	
 	return 0;
 }

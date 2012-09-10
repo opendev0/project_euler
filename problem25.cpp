@@ -45,7 +45,7 @@ int main(void)
 		last[1] = tmp;
 	} while (tmp.numDigits() < 1000);
 	
-	cout << i << endl;
+	cout << "The first term in the Fibonacci sequence which contains 1000 digits is " << i << '.' << endl;
 	
 	return 0;
 }
