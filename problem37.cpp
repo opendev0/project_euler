@@ -8,7 +8,7 @@ NOTE: 2, 3, 5, and 7 are not considered to be truncatable primes.
 
 #include "utilities/primes.h"
 #include <iostream>
-#include <unordered_set>
+#include <set>
 
 using namespace std;
 
