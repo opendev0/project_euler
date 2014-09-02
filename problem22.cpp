@@ -8,12 +8,12 @@ What is the total of all the name scores in the file?
 
 #include <iostream>
 #include <fstream>
-#include <vector>
-#include <algorithm>
+#include "utilities/vector.h"
 
 using namespace std;
 
 unsigned int getAlphabeticalValue(string const &);
+void sort(vector<string> &);
 
 int main(void)
 {
@@ -33,10 +33,10 @@ int main(void)
 	
 	ifs.close();
 	
-	sort(names.begin(), names.end());
+	sort(names);
 	
 	for (unsigned int i = 0; i < names.size(); ++i) {
-		totalNameScore += (i + 1) * getAlphabeticalValue(names[i]);		
+		totalNameScore += (i + 1) * getAlphabeticalValue(names[i]);
 	}
 	
 	cout << "The total of all name scores is " << totalNameScore << '.' << endl;
@@ -53,4 +53,23 @@ unsigned int getAlphabeticalValue(string const & str)
 	}
 	
 	return value;
+}
+
+void sort(vector<string> &strings)
+{
+	bool change = true;
+	size_t end = strings.size() - 1;
+	
+	for (size_t i = 0; change && (i < end); ++i) {
+		change = false;
+		
+		for (size_t j = 0; j < end; ++j) {
+			if (strings[j + 1] < strings[j]) {
+				string tmp = strings[j];
+				strings[j] = strings[j + 1];
+				strings[j + 1] = tmp;
+				change = true;
+			}
+		}
+	}
 }

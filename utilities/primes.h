@@ -1,19 +1,37 @@
 #ifndef __PRIMES_H
 #define __PRIMES_H
 
-#include <vector>
-#include <set>
+#include <cmath>	// sqrt
+#include <set>		// TODO: Get rid of it
 #include "intfun.h"
+#include "vector.h"
 
 using namespace std;
 
 
 bool isPrime(unsigned int n)
 {
-	if (n == 0 || n == 1) return false;
+	if (n == 2) return true;
+	if (!(n & 1) || n <= 1) return false;
 	
-	// If n is evenly divisible by a number less than itself and greater than 1 -> no prime
-	for (unsigned int i = (n - 1); i >= 2; --i) {
+	unsigned int maxDivisor = sqrt(n);
+	
+	for (unsigned int i = 3; i <= maxDivisor; i += 2) {
+		if (!(n % i)) {
+			return false;
+		}
+	}
+	
+	return true;
+}
+
+bool isPrime(int n)
+{
+	if (!(n & 1) || n <= 1) return false;
+	
+	unsigned int maxDivisor = sqrt(n);
+	
+	for (unsigned int i = 3; i <= maxDivisor; i += 2) {
 		if (!(n % i)) {
 			return false;
 		}
@@ -88,8 +106,11 @@ vector<unsigned int> getCircularPrimes(set<unsigned int> const &primeSet)
 	return result;
 }
 
-bool isTruncateable(unsigned int const n, set<unsigned int> const &primes)
-{
+/**
+ * Truncatable primes are prime numbers that remain prime if you remove digits from the left or right.
+ */
+bool isTruncateablePrime(unsigned int const n)
+{	
 	unsigned int len = numDigits(n);
 	unsigned int copy = n;
 	
@@ -99,18 +120,18 @@ bool isTruncateable(unsigned int const n, set<unsigned int> const &primes)
 	for (unsigned int i = 1; i < len; ++i) {
 		copy /= 10;
 		
-		if (primes.find(copy) == primes.end()) {
+		if (!isPrime(copy)) {
 			return false;
 		}
 	}
 	
 	copy = n;
 	// Trim from left to right
-	for (unsigned int j = len; j > 0; --j) {
-		unsigned int power = pow(10, j-1);
+	for (unsigned int i = len - 1; i > 0; --i) {
+		unsigned int power = pow(10, i);
 		copy -= (copy / power) * power;
 		
-		if (primes.find(copy) == primes.end()) {
+		if (!isPrime(copy)) {
 			return false;
 		}
 	}

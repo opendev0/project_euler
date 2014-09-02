@@ -4,7 +4,7 @@
 What is the sum of the digits of the number 2^(1000)?
 */
 
-#include "utilities/BigInt.h"
+#include "utilities/bigint.h"
 #include <iostream>
 
 using namespace std;

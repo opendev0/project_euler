@@ -27,7 +27,7 @@ uint64 pow(uint x, uint y)
 
 int main(void)
 {	
-	cout << "The last ten digits of the non-Mersenne prime 28433×2^(7830457)+1 is " << (((28433 * pow(2, 7830457)) + 1) % 10000000000) << '.' << endl;
+	cout << "The last ten digits of the non-Mersenne prime 28433*2^(7830457)+1 is " << (((28433 * pow(2, 7830457)) + 1) % 10000000000) << '.' << endl;
 
 	return 0;
 }

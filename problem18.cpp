@@ -16,13 +16,13 @@ NOTE: As there are only 16384 routes, it is possible to solve this problem by tr
 
 #include <iostream>
 #include <fstream>
-#include <vector>
+#include "utilities/vector.h"
 
 using namespace std;
 
 typedef unsigned int uint;
 
-vector<uint *>& readTriangle(string file)
+vector<uint *>& readTriangle(char const *file)
 {
 	ifstream ifs(file);
 	

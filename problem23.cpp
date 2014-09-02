@@ -8,9 +8,9 @@ As 12 is the smallest abundant number, 1 + 2 + 3 + 4 + 6 = 16, the smallest numb
 Find the sum of all the positive integers which cannot be written as the sum of two abundant numbers.
 */
 
-#include "utilities/intfun.h"
 #include <iostream>
-#include <set>
+#include <unordered_set>
+#include "utilities/intfun.h"
 
 using namespace std;
 
@@ -18,25 +18,22 @@ typedef unsigned int uint;
 
 int main(void)
 {
-	set<uint> resultSet;
+	unordered_set<uint> resultSet;
 	vector<uint> numbers;
 	const uint max = 28124;
 	bool abundant[max] = {false};
 	uint result = 0;
 	
-	cout << "Creating set of numbers from 1 to " << (max - 1) << endl;
 	for (uint i = 1; i < max; ++i) {
 		resultSet.insert(i);
 	}
 	
-	cout << "Calculating abundant numbers with an upper limit of " << (max - 1) << endl;
 	for (uint i = 12; i < max; ++i) {
 		if (isAbundant(i)) {
 			abundant[i] = true;
 		}
 	}
 	
-	cout << "Removing numbers, that can be written as sum of two abundant numbers, from set" << endl;
 	for (uint i = 12; i < max; ++i) {
 		if (abundant[i]) {
 			for (uint j = i; j < max; ++j) {
@@ -47,21 +44,9 @@ int main(void)
 		}
 	}
 	
-	uint i = 0;
-	
-	cout << endl << "Positive integers, that cannot be written as the sum of two abundant numbers:" << endl;
-
-	for (set<uint>::iterator it = resultSet.begin(); it != resultSet.end(); ++it) {
-		cout.width(5);
-		cout << *it;
+	for (unordered_set<uint>::iterator it = resultSet.begin(); it != resultSet.end(); ++it) {
 		result += *it;
-		
-		if (!(++i % 13) && i > 1) {
-			cout << endl;
-		} else {
-			cout << ' ';
-		}
 	}
 	
-	cout << endl << endl << "The sum of all positive integers which cannot be written as the sum of two abundant numbers is " << result << '.' << endl;
+	cout << "The sum of all positive integers which cannot be written as the sum of two abundant numbers is " << result << '.' << endl;
 }

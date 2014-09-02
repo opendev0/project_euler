@@ -24,7 +24,7 @@ int main(void)
 		unsigned int j = i;
 		
 		do {
-			j = squareOfChars(j);
+			j = squareOfDigits(j);
 			
 			if (j == 89) {
 				++counter;

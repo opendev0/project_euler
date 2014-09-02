@@ -4,7 +4,7 @@ A googol (10100) is a massive number: one followed by one-hundred zeros; 100100 
 Considering natural numbers of the form, a^b, where a, b < 100, what is the maximum digital sum?
 */
 
-#include "utilities/BigInt.h"
+#include "utilities/bigint.h"
 #include <iostream>
 
 using namespace std;

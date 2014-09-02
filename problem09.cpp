@@ -28,7 +28,7 @@ int main(void)
 		}
 	}
 	
-	cout << "The product of the Pythagorean triplet for which a + b + c = 1000 is " << result << '.';
+	cout << "The product of the Pythagorean triplet for which a + b + c = 1000 is " << result << '.' << endl;
 
 	return 0;
 }

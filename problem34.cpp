@@ -6,10 +6,8 @@ Find the sum of all numbers which are equal to the sum of the factorial of their
 Note: as 1! = 1 and 2! = 2 are not sums they are not included.
 */
 
-#include "utilities/intfun.h"
-#include "utilities/BigInt.h"
 #include <iostream>
-#include <vector>
+#include "utilities/intfun.h"
 
 using namespace std;
 
@@ -17,28 +15,18 @@ typedef unsigned int uint;
 
 int main(void)
 {
-	BigInt bi, bi2;
-	uint numDigits;
-	vector<uint> sums;
 	uint result = 0;
 
 	for (uint i = 3; i < 1000000; ++i) {
-		bi = BigInt(i);
-		bi2 = BigInt(0U);
-		numDigits = bi.numDigits();
+		uint sum = 0;
 		
-		for (uint j = 0; j < numDigits; ++j) {
-			bi2 += factorial(bi[j]);
+		for (uint n = i; n; n /= 10) {
+			sum += factorial(n % 10);
 		}
 		
-		if (bi2 == i) {
-			sums.push_back(i);
+		if (sum == i) {
+			result += sum;
 		}
-	}
-	
-	for (uint i = 0; i < sums.size(); ++i) {
-		result += sums[i];
-		cout << sums[i] << endl;
 	}
 	
 	cout << "The sum of all numbers which are equal to the sum of the factorial of their digits is " << result << '.' << endl;

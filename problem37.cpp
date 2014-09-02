@@ -8,7 +8,7 @@ NOTE: 2, 3, 5, and 7 are not considered to be truncatable primes.
 
 #include "utilities/primes.h"
 #include <iostream>
-#include <set>
+#include <unordered_set>
 
 using namespace std;
 
@@ -19,7 +19,7 @@ int main(void)
 	set<unsigned int> const primes = getPrimes(1000000);
 	
 	for (set<unsigned int>::iterator it = primes.begin(); it != primes.end(); ++it) {
-		if (isTruncateable(*it, primes)) {
+		if (isTruncateablePrime(*it)) {
 			result += *it;
 		}
 	}

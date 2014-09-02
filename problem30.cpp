@@ -12,44 +12,25 @@ The sum of these numbers is 1634 + 8208 + 9474 = 19316.
 Find the sum of all the numbers that can be written as the sum of fifth powers of their digits.
 */
 
-#include "utilities/BigInt.h"
 #include <iostream>
-#include <vector>
+#include "utilities/intfun.h"
 
 using namespace std;
 
-typedef unsigned int uint;
-
-uint pow(uint x, uint y)
-{
-	uint result = x;
-	
-	for (uint i = 1; i < y; ++i) {
-		result *= x;
-	}
-	
-	return result;
-}
-
 int main(void)
 {
-	vector<BigInt> numbers;
-	BigInt sum(0U);
+	unsigned int sum = 0;
 	
-	for (BigInt i(10U); i < BigInt(1000000); ++i) {
-		uint result = 0;
+	for (unsigned int i = 10; i < 1000000; ++i) {
+		unsigned int result = 0;
 		
-		for (uint j = 0; j < i.numDigits(); ++j) {
-			result += pow(i[j], 5);
+		for (unsigned int j = i; j; j /= 10) {
+			result += pow(j % 10, 5);
 		}
 		
 		if (i == result) {
-			numbers.push_back(i);
+			sum += i;
 		}
-	}
-	
-	for (uint i = 0; i < numbers.size(); ++i) {
-		sum = (sum + numbers[i]);
 	}
 	
 	cout << "The sum of all numbers that can be written as the sum of fifth powers of their digits is " << sum << '.' << endl;
